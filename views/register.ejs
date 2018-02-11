@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html ng-app="vbookstore" ng-controller="authController">
+<head>
+    <!-- Google Authentication -->
+
+    <meta name="google-signin-scope" content="profile email">
+    <meta name="google-signin-client_id" content="123369030640-94jn352cqfd72s425etan04p0rv6p086.apps.googleusercontent.com">
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+
+    <title><%= title %></title>
+    <base href="/register">
+    <link rel='stylesheet' href='/stylesheets/index.css' />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Kalam|Khand|Acme|Josefin+Slab|Russo+One" rel="stylesheet">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.js"></script>
+    <!--font awesome-->
+    <script src="https://use.fontawesome.com/049417105c.js"></script>
+    <script src="/javascripts/frontend/auth.js"></script>
+    <script src="/javascripts/controllers/auth.js"></script>
+    <style>
+        input[type=number]::-webkit-inner-spin-button,
+        input[type=number]::-webkit-outer-spin-button {
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+<!--Forgot password-->
+<div id="forgotPasswordModal" class="modal fade" role="dialog">
+    <div class="modal-dialog" role="content">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header bg-warning">
+                <h4 class="modal-title offset-5 "><b><%=header%></b> </h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form ng-submit="forgotEmailGen()">
+                    <div class="form-group">
+                        <label  for="email">Email</label>
+                        <input type="text" class="form-control form-control-sm mr-1" name="email" id="email" placeholder="Enter your email" ng-model="customer.email" required="required">
+                    </div>
+                    <div class="message-container">
+                        <p class="text-warning" ng-model="msg">{{msg}}</p>
+                    </div>
+                    <br>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default btn-sm" data-dismiss="modal">Cancel</button>
+                        <button type="submit" class="btn btn-primary btn-sm">Send me email</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!--Resend email-->
+<div id="resendEmailModal" class="modal fade" role="dialog">
+    <div class="modal-dialog" role="content">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header bg-warning">
+                <h4 class="modal-title offset-5 "><b><%=header%></b> </h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form ng-submit="emailGen()">
+                    <div class="form-group">
+                        <label  for="email">Email</label>
+                        <input type="text" class="form-control form-control-sm mr-1" name="email" id="email" placeholder="Enter email" ng-model="customer.email" required="required">
+                    </div>
+                    <div class="message-container">
+                        <p class="text-warning" ng-model="msg">{{msg}}</p>
+                    </div>
+                    <br>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default btn-sm" data-dismiss="modal">Cancel</button>
+                        <button type="submit" class="btn btn-primary btn-sm">Resend email</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<header>
+    <h1 class="header" style="padding: 5%; background-color: orange;"><%=header%></h1>
+</header>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12">
+            <h4><b>Login or Create a Free Account!</b></h4>
+            <p><small>Furniture point has been serving people to buy their furniture and stay a happy life. Join us in our journey.</small></p>
+            <hr>
+            <%if(message){%>
+            <div class="alert alert-success" role="alert">
+                <strong><%=message%></strong>
+            </div>
+            <%}%>
+        </div>
+        <div class="col-lg-6 col-md-12 login-container">
+            <div class="alert alert-info" role="alert" ng-if="msgLogin">
+                <strong ng-model="msgLogin">{{msgLogin}}</strong>
+            </div>
+            <p><b>Login : </b></p>
+            <form ng-submit="getLogin()">
+                <div class="form-group">
+                    <input type="text" class="form-control form-control" name="email" id="email" placeholder="email" ng-model="customer.email" required="required">
+                </div>
+                <div class="form-group">
+                    <input type="password" class="form-control form-control" name="password" id="password" placeholder="password" ng-model="customer.password" required="required">
+                </div>
+                <br>
+                <a href="#" data-toggle="modal" data-target="#forgotPasswordModal">Forgot password?</a>
+                <i class="fa fa-circle"></i>
+                <a href="#" data-toggle="modal" data-target="#resendEmailModal">Resend Email?</a>
+
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-outline-primary float-left">Login <span class="spinner" data-loader><i class="fa fa-circle-o-notch fa-spin fa-1x fa-fw" aria-hidden="true"></i></span></button>
+                </div>
+            </form>
+        </div>
+        <div class="col-lg-6 col-md-12 register-container">
+            <div class="alert alert-info" role="alert" ng-if="msgReg">
+                <strong ng-model="msgReg">{{msgReg}}</strong>
+            </div>
+            <p><b>New Account : </b></p>
+            <form class="form" ng-submit="getRegistered()">
+                <div class="form-group">
+                    <input type="text" class="form-control form-control" id="name" placeholder="name" ng-model="customer.name">
+                    <!--<span class="form-control-feedback glyphicon glyphicon-ok"></span>-->
+                    <!--<span class="form-control-feedback glyphicon glyphicon-remove"></span>-->
+                </div>
+                <div class="form-group">
+                    <input type="email" class="form-control form-control" id="email" placeholder="email"  ng-model="customer.email">
+                </div>
+                <div class="form-group">
+                    <input type="number" class="form-control form-control" id="contact" placeholder="mobile number" ng-model="customer.phone">
+                </div>
+                <div class="form-group">
+                    <input type="password" class="form-control form-control" id="Password" placeholder="password" ng-model="customer.password">
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-outline-success float-left">Create Account<span class="spinner" data-loader><i class="fa fa-circle-o-notch fa-spin fa-1x fa-fw" aria-hidden="true"></i></span></button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
