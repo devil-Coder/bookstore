@@ -11,6 +11,7 @@ var index = require('./routes/index');
 var users = require('./routes/users');
 var auth = require('./routes/auth');
 var seller = require('./routes/seller');
+var dashboard = require('./routes/dashboard');
 
 var app = express();
 
@@ -30,6 +31,7 @@ app.use('/', index);
 app.use('/users', users);
 app.use('/auth', auth);
 app.use('/seller', seller);
+app.use('/dashboard', dashboard);
 
 //for user Logout
 app.get('/logout',function (req,res) {
