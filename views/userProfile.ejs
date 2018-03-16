@@ -1,0 +1,82 @@
+<!DOCTYPE html >
+<html>
+<head ng-app="store" ng-controller="productsController">
+    <title>Book Store</title>
+    <base href="/users/feeds">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.js"></script>
+    <!--font awesome-->
+    <script src="https://use.fontawesome.com/049417105c.js"></script>
+    <!--<style>-->
+    <!--.card-columns {-->
+    <!--@include media-breakpoint-only(md) {-->
+    <!--column-count: 3;-->
+    <!--}-->
+    <!--@include media-breakpoint-only(lg) {-->
+    <!--column-count: 3;-->
+    <!--}-->
+    <!--@include media-breakpoint-only(xl) {-->
+    <!--column-count: 3;-->
+    <!--}-->
+    <!--}-->
+    <!--</style>-->
+<body>
+<!--Navbar Wrapper-->
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
+    <!-- Navbar content -->
+    <a class="navbar-brand" href="#">
+        <i class="fa fa-bookmark fa-lg" aria-hidden="true"></i>&nbsp;BookStore</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="/dashboard/cart">
+                    <i class="fa fa-cart-arrow-down fa-lg" aria-hidden="true"></i>&nbsp;Cart </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/dashboard/profile">
+                    <i class="fa fa-user fa-lg" aria-hidden="true"></i>&nbsp;Profile </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/logout">
+                    <i class="fa fa-user-times fa-lg" aria-hidden="true"></i>&nbsp;Logout </a>
+            </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-danger my-2 my-sm-0" type="submit">Search</button>
+        </form>
+    </div>
+</nav>
+</nav>
+<br>
+<!--Body Content wrapper-->
+<div class="container-fluid" style="padding : 5%;">
+    <div class="row">
+        <!--User profile-->
+        <div class="col-lg-4">
+            <img src="/images/s1.jpg" alt="">
+        </div>
+        <div class="col-lg-8">
+
+        </div>
+
+        <!--Footer container-->
+        <footer class="footer-container" style="padding : 5%;" align="center">
+            &copy; 2018 - VIT.
+        </footer>
+    </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html>

@@ -36,8 +36,10 @@ var requireAuthentication = function(req, res, next){
 }
 
 /* GET users listing. */
-router.get('/', function(req, res, next) {
-    res.send('respond with a resource');
+router.get('/profile', function(req, res, next) {
+    res.render('userProfile',{
+        title : 'Profile View'
+    });
 });
 
 router.get('/feeds', function(req, res, next) {

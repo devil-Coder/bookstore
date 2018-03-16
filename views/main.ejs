@@ -1,6 +1,6 @@
 <!DOCTYPE html >
 <html>
-<head>
+<head ng-app="store" ng-controller="productsController">
     <title>Book Store</title>
     <base href="/users/feeds">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,36 +12,42 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.js"></script>
     <!--font awesome-->
     <script src="https://use.fontawesome.com/049417105c.js"></script>
-    <style>
-        .card-columns {
-        @include media-breakpoint-only(lg) {
-            column-count: 4;
-        }
-        @include media-breakpoint-only(xl) {
-            column-count: 5;
-        }
-        }
-    </style>
+    <!--<style>-->
+        <!--.card-columns {-->
+        <!--@include media-breakpoint-only(md) {-->
+            <!--column-count: 3;-->
+        <!--}-->
+        <!--@include media-breakpoint-only(lg) {-->
+            <!--column-count: 3;-->
+        <!--}-->
+        <!--@include media-breakpoint-only(xl) {-->
+            <!--column-count: 3;-->
+        <!--}-->
+        <!--}-->
+    <!--</style>-->
 <body>
 <!--Navbar Wrapper-->
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
     <!-- Navbar content -->
-        <a class="navbar-brand" href="#">BookStore</a>
+        <a class="navbar-brand" href="#">
+            <i class="fa fa-bookmark fa-lg" aria-hidden="true"></i>&nbsp;BookStore</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <i class="fa fa-cart-arrow-down" aria-hidden="true"></i>&nbsp;
-                    <a class="nav-link" href="/dashboard/cart"> Cart </a>
+                <li class="nav-item">
+                    <a class="nav-link" href="/dashboard/cart">
+                        <i class="fa fa-cart-arrow-down fa-lg" aria-hidden="true"></i>&nbsp;Cart </a>
                 </li>
-                <li class="nav-item active">
-                    <a class="nav-link" href="/dashboard/profile"> Profile </a>
+                <li class="nav-item">
+                    <a class="nav-link" href="/dashboard/profile">
+                        <i class="fa fa-user fa-lg" aria-hidden="true"></i>&nbsp;Profile </a>
                 </li>
-                <li class="nav-item active">
-                    <a class="nav-link" href="/logout"> Logout </a>
+                <li class="nav-item">
+                    <a class="nav-link" href="/logout">
+                        <i class="fa fa-user-times fa-lg" aria-hidden="true"></i>&nbsp;Logout </a>
                 </li>
             </ul>
             <form class="form-inline my-2 my-lg-0">
@@ -53,33 +59,45 @@
 </nav>
 <br>
 <!--Body Content wrapper-->
-<div class="container-fluid" style="padding : 5% 0 0 0;">
+<div class="container-fluid" style="padding : 5%;">
     <div class="row">
         <!--List of subject container-->
-        <div class="books-container col-lg-4 col-sm-12 col-md-4 float-left">
+        <div class="books-container col-lg-3 col-sm-12 col-md-4 float-left">
             <section class="subject-title">
                 <ul class="list-group">
                     <li class="list-group-item d-flex justify-content-between align-items-center">
-                        CSE
+                        CSE Books
                         <span class="badge badge-primary badge-pill">140</span>
                     </li>
                     <li class="list-group-item d-flex justify-content-between align-items-center">
-                        IT
+                        IT Books
                         <span class="badge badge-primary badge-pill">200</span>
                     </li>
                     <li class="list-group-item d-flex justify-content-between align-items-center">
-                        ECE
+                        ECE Books
+                        <span class="badge badge-primary badge-pill">100</span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        EEE Books
+                        <span class="badge badge-primary badge-pill">140</span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        BCL Books
+                        <span class="badge badge-primary badge-pill">200</span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        BME Books
                         <span class="badge badge-primary badge-pill">100</span>
                     </li>
                 </ul>
             </section>
         </div>
         <!--Books display container-->
-        <div class="books-container col-lg-8 col-sm-12 col-md-8">
+        <div class="books-container col-lg-9 col-sm-12 col-md-8">
             <h4 class="header-cs-container">Computer Science</h4><hr>
             <div class="card-deck">
                 <div class="card">
-                    <img class="card-img-top" src="..." alt="Card image cap">
+                    <img class="card-img-top" src="/images/s1.jpg" alt="Card image cap">
                     <div class="card-body">
                         <h5 class="card-title">Card title</h5>
                         <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
@@ -88,8 +106,27 @@
                         <small class="text-muted">Last updated 3 mins ago</small>
                     </div>
                 </div>
-            </div>
-            <br>
+                <div class="card">
+                    <img class="card-img-top" src="/images/s1.jpg" alt="">
+                    <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                    </div>
+                    <div class="card-footer">
+                        <small class="text-muted">Last updated 3 mins ago</small>
+                    </div>
+                </div>
+                <div class="card">
+                    <img class="card-img-top" src="/images/s1.jpg" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                    </div>
+                    <div class="card-footer">
+                        <small class="text-muted">Last updated 3 mins ago</small>
+                    </div>
+                </div>
+            </div><br>
             <button class="btn btn-primary float-right">View more</button>
         </div>
         <footer class="footer-container" style="padding : 5%;" align="center">
@@ -100,5 +137,11 @@
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script>
+    $('#myList a').on('click', function (e) {
+        e.preventDefault()
+        $(this).tab('show')
+    })
+</script>
 </body>
 </html>
