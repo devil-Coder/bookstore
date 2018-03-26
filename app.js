@@ -45,9 +45,9 @@ var db = mongoose.connection;
 mongoose.connect(process.env.MONGODB, function(err) {
     if (err) {
         console.log(err);
-        process.exit(1);
+        // process.exit(1);
     } else {
-        console.log('MongoDB Listening at port 3000...');
+        console.log('Database ready to use.');
     }
 });
 // catch 404 and forward to error handler
@@ -67,5 +67,5 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
-
+console.log('App running. Setting up db..');
 module.exports = app;

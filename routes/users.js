@@ -35,6 +35,12 @@ var requireAuthentication = function(req, res, next){
     });
 }
 
+router.get('/feeds', function(req, res, next) {
+    res.render('main',{
+        title : 'vBookStore | Home'
+    });
+});
+
 /* GET users listing. */
 router.get('/profile', function(req, res, next) {
     res.render('userProfile',{
@@ -42,9 +48,20 @@ router.get('/profile', function(req, res, next) {
     });
 });
 
-router.get('/feeds', function(req, res, next) {
-    res.render('main',{
-        title : 'vBookStore | Home'
+router.get('/cart', function(req, res, next) {
+    res.render('cart',{
+        title : 'vBookStore | Cart'
     });
+});
+
+router.get('/:username/orders', function(req, res, next) {
+
+});
+
+router.get('/:username/address', function(req, res, next) {
+
+});
+router.get('/:username/sellproduct', function(req, res, next) {
+
 });
 module.exports = router;

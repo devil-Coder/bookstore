@@ -10,26 +10,15 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.js"></script>
+    <script src="/javascripts/controllers/user.js"></script>
+
     <!--font awesome-->
     <script src="https://use.fontawesome.com/049417105c.js"></script>
-    <!--<style>-->
-    <!--.card-columns {-->
-    <!--@include media-breakpoint-only(md) {-->
-    <!--column-count: 3;-->
-    <!--}-->
-    <!--@include media-breakpoint-only(lg) {-->
-    <!--column-count: 3;-->
-    <!--}-->
-    <!--@include media-breakpoint-only(xl) {-->
-    <!--column-count: 3;-->
-    <!--}-->
-    <!--}-->
-    <!--</style>-->
 <body>
 <!--Navbar Wrapper-->
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
     <!-- Navbar content -->
-    <a class="navbar-brand" href="#">
+    <a class="navbar-brand" href="/users/feeds">
         <i class="fa fa-bookmark fa-lg" aria-hidden="true"></i>&nbsp;BookStore</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -38,10 +27,10 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item">
-                <a class="nav-link" href="/dashboard/cart">
+                <a class="nav-link" href="/users/cart">
                     <i class="fa fa-cart-arrow-down fa-lg" aria-hidden="true"></i>&nbsp;Cart </a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item active">
                 <a class="nav-link" href="/users/profile">
                     <i class="fa fa-user fa-lg" aria-hidden="true"></i>&nbsp;Profile </a>
             </li>
@@ -69,9 +58,14 @@
                     <h5 class="card-title">Raj Chandra</h5>
                 </div>
                 <ul class="list-group list-group-flush">
-                    <li class="list-group-item"> Your Orders </li>
-                    <li class="list-group-item"> View Address </li>
-                    <li class="list-group-item"> Payment Options</li>
+                    <a href="#orders">
+                        <li class="list-group-item btn-outline-primary"> Your Orders </li>
+                    </a>
+                    <a href="/#!/address">
+                        <li class="list-group-item btn-outline-primary"> View Address </li>
+                    </a>
+                    <a href="/#!/sellbook"></a>
+                    <li class="list-group-item btn-outline-primary"> Sell a Book </li>
                 </ul>
             </div>
         </div>
@@ -110,13 +104,12 @@
                 </div>
             </div>
         </div>
-
-        <!--Footer container-->
-        <footer class="footer-container" style="padding : 2% 5% 0% 5%;" align="center">
-            &copy; 2018 - VIT.
-        </footer>
     </div>
 </div>
+<!--Footer container-->
+<footer class="footer-container" style="padding : 2% 5% 0% 5%;" align="center">
+    &copy; 2018 - VIT.
+</footer>
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>

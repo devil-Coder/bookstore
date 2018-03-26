@@ -5,6 +5,25 @@ var app = angular.module('store',["ngRoute"],function($locationProvider){
     $locationProvider.html5Mode(true);
 });
 
+app.config(function($routeProvider){
+    $routeProvider
+        .when("/orders",{
+            templateUrl : '/ejs/profile/orders.ejs',
+            controller : 'userController'
+        })
+        .when("/address",{
+            templateUrl : '/ejs/profile/address.ejs',
+            controller : 'userController'
+        })
+        .when("/sellbook",{
+            templateUrl : '/ejs/profile/sellbook.ejs',
+            controller : 'userController'
+        })
+        .otherwise({
+            template:"404 - Page not found"
+        });
+});
+
 app.controller('userController',['$scope','$http','$location',function ($scope,$http,$location) {
     $scope.getUserInformation = function() {
         $http.get('/user/profile').then(successCallback, errorCallback);
